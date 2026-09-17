@@ -17,12 +17,19 @@ Brasileiro. Os dados de partidas sao ficticios e existem apenas para estudo.
 ```text
 brasileirao-db/
 |-- banco/                 # Banco gerado; nao vai para o GitHub
+|-- public/
+|   |-- index.html         # Estrutura do painel no navegador
+|   |-- styles.css         # Aparencia do painel
+|   `-- dashboard.js       # Interacao e atualizacao dos dados
 |-- sql/
 |   |-- 01_estrutura.sql   # Cria as tabelas e os relacionamentos
 |   |-- 02_dados.sql       # Insere dados ficticios para teste
 |   `-- 03_consultas.sql   # Exemplos de consultas SQL
 |-- src/
-|   `-- app.js             # Gera e consulta o banco SQLite
+|   |-- app.js             # Gera e consulta o banco SQLite
+|   `-- server.js          # Liga o painel ao banco de dados
+|-- abrir-painel.bat       # Abre o painel no Windows
+|-- consultar.bat          # Mostra os dados no terminal
 |-- .gitignore
 |-- package.json
 `-- README.md
@@ -67,4 +74,4 @@ times (1) ----< jogos >---- (1) times
 2. Cadastrar mais times e jogos ficticios.
 3. Entender e executar as consultas de `03_consultas.sql`.
 4. Adicionar jogadores e estadios em novas tabelas.
-5. Criar uma interface simples para cadastrar e listar os jogos.
+5. Adicionar formularios para cadastrar novos times e jogos pelo painel.
