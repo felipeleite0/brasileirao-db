@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasileirao DB</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topo">
+      <div>
+        <p class="temporada">Temporada 2025</p>
+        <h1>Brasileirao DB</h1>
+      </div>
+      <div class="status"><span></span> Banco local</div>
+    </header>
+
+    <main>
+      <section class="resumo" aria-label="Resumo do campeonato">
+        <div><strong id="total-times">0</strong><span>times</span></div>
+        <div><strong id="total-jogos">0</strong><span>jogos</span></div>
+        <div><strong id="finalizados">0</strong><span>finalizados</span></div>
+      </section>
+
+      <div class="abas" role="tablist" aria-label="Visualizacoes">
+        <button class="aba ativa" data-alvo="classificacao" role="tab">Classificacao</button>
+        <button class="aba" data-alvo="jogos" role="tab">Jogos e resultados</button>
+      </div>
+
+      <section id="classificacao" class="painel">
+        <div class="titulo-secao">
+          <div>
+            <p>Tabela atualizada</p>
+            <h2>Classificacao</h2>
+          </div>
+          <span class="legenda">P: pontos · J: jogos · SG: saldo</span>
+        </div>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr><th>Pos.</th><th>Time</th><th>P</th><th>J</th><th>V</th><th>E</th><th>D</th><th>GP</th><th>GC</th><th>SG</th></tr>
+            </thead>
+            <tbody id="corpo-classificacao"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="jogos" class="painel oculto">
+        <div class="titulo-secao">
+          <div>
+            <p>Edicao rapida</p>
+            <h2>Jogos e resultados</h2>
+          </div>
+          <span class="legenda">Selecione uma partida para editar</span>
+        </div>
+        <div id="lista-jogos" class="lista-jogos"></div>
+      </section>
+    </main>
+
+    <dialog id="editor">
+      <form id="form-jogo">
+        <div class="modal-topo">
+          <div>
+            <p id="editor-rodada"></p>
+            <h2>Editar resultado</h2>
+          </div>
+          <button type="button" id="fechar" class="icone" aria-label="Fechar">×</button>
+        </div>
+        <input type="hidden" id="jogo-id">
+        <div class="placar-editor">
+          <label><span id="nome-mandante"></span><input id="gols-mandante" type="number" min="0" max="99"></label>
+          <strong>×</strong>
+          <label><span id="nome-visitante"></span><input id="gols-visitante" type="number" min="0" max="99"></label>
+        </div>
+        <label class="campo-status">Status
+          <select id="jogo-status">
+            <option value="agendado">Agendado</option>
+            <option value="finalizado">Finalizado</option>
+            <option value="adiado">Adiado</option>
+          </select>
+        </label>
+        <p id="mensagem" class="mensagem" aria-live="polite"></p>
+        <button type="submit" class="salvar">Salvar alteracao</button>
+      </form>
+    </dialog>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,17 @@
+# Banco gerado localmente
+banco/*.db
+
+# Arquivos locais e segredos
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Dependencias e arquivos do sistema
+node_modules/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+

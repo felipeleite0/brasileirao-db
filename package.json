@@ -1,0 +1,11 @@
+{
+  "name": "brasileirao-db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Projeto didatico de banco de dados com times e jogos do Brasileirao",
+  "scripts": {
+    "criar-banco": "node src/app.js criar",
+    "consultar": "node src/app.js consultar",
+    "painel": "node src/server.js"
+  }
+}
