@@ -46,6 +46,20 @@ brasileirao-db/
 
 ## Como executar
 
+### Requisitos
+
+- Node.js 24, para executar o projeto com o módulo nativo `node:sqlite`.
+- npm, incluído na instalação do Node.js, para os atalhos abaixo.
+
+Clone o repositório e entre na pasta:
+
+```bash
+git clone https://github.com/felipeleite0/brasileirao-db.git
+cd brasileirao-db
+```
+
+O projeto utiliza módulos nativos do Node.js e não possui dependências externas para instalar.
+
 No Windows, é possível abrir o painel com dois cliques em:
 
 ```text
