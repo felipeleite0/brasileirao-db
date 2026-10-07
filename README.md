@@ -1,66 +1,74 @@
-# Brasileirao DB
+# Brasileirão DB
 
-Projeto didatico de banco de dados para cadastrar times e jogos do Campeonato
-Brasileiro. Os dados de partidas sao ficticios e existem apenas para estudo.
+Projeto didático de banco de dados para cadastrar times e jogos fictícios do Campeonato Brasileiro, consultar partidas e calcular a classificação automaticamente.
 
-## O que voce vai aprender
+O objetivo é praticar modelagem relacional, SQL e integração simples entre Node.js, SQLite e uma interface web local.
 
-- Criar tabelas e definir tipos de dados.
-- Usar uma chave primaria para identificar cada registro.
-- Relacionar jogos aos times com chaves estrangeiras.
-- Impedir dados invalidos com regras de validacao.
-- Consultar partidas usando `JOIN`.
-- Calcular uma classificacao usando resultados dos jogos.
+## Destaques
 
-## Estrutura do projeto
+- Criação de tabelas com SQL.
+- Uso de chave primária e chave estrangeira.
+- Relacionamento entre jogos e times.
+- Consultas com `JOIN`.
+- Cálculo de classificação com pontos, vitórias, empates, derrotas, gols e saldo.
+- Painel local para atualizar resultados e recalcular a tabela.
+- Scripts para consultar os dados pelo terminal.
+
+## Tecnologias
+
+- JavaScript
+- Node.js
+- SQLite
+- SQL
+- HTML
+- CSS
+
+## Estrutura
 
 ```text
 brasileirao-db/
-|-- banco/                 # Banco gerado; nao vai para o GitHub
 |-- public/
-|   |-- index.html         # Estrutura do painel no navegador
-|   |-- styles.css         # Aparencia do painel
-|   `-- dashboard.js       # Interacao e atualizacao dos dados
+|   |-- index.html
+|   |-- styles.css
+|   `-- dashboard.js
 |-- sql/
-|   |-- 01_estrutura.sql   # Cria as tabelas e os relacionamentos
-|   |-- 02_dados.sql       # Insere dados ficticios para teste
-|   `-- 03_consultas.sql   # Exemplos de consultas SQL
+|   |-- 01_estrutura.sql
+|   |-- 02_dados.sql
+|   `-- 03_consultas.sql
 |-- src/
-|   |-- app.js             # Gera e consulta o banco SQLite
-|   `-- server.js          # Liga o painel ao banco de dados
-|-- abrir-painel.bat       # Abre o painel no Windows
-|-- consultar.bat          # Mostra os dados no terminal
-|-- .gitignore
+|   |-- app.js
+|   `-- server.js
+|-- abrir-painel.bat
+|-- consultar.bat
 |-- package.json
 `-- README.md
 ```
 
 ## Como executar
 
-No Windows, a forma mais simples e dar dois cliques em `abrir-painel.bat`.
-O navegador abrira um painel no qual os resultados podem ser alterados e a
-classificacao sera recalculada na hora.
+No Windows, é possível abrir o painel com dois cliques em:
 
-O arquivo `consultar.bat` continua disponivel para visualizar os dados no
-terminal.
-
-No terminal, entre na pasta do projeto e execute:
-
-```powershell
-node src/app.js criar
-node src/app.js consultar
+```text
+abrir-painel.bat
 ```
 
-O primeiro comando cria `banco/brasileirao.db`. O segundo mostra as partidas
-cadastradas e a classificacao calculada no terminal.
+Também é possível executar pelo terminal:
 
-Se o `npm` estiver instalado, tambem podem ser usados os atalhos
-`npm run criar-banco` e `npm run consultar`.
+```bash
+npm run criar-banco
+npm run consultar
+npm run painel
+```
 
-## Modelo inicial
+O painel local fica disponível em:
 
-Um time pode participar de muitos jogos. Cada jogo possui dois relacionamentos
-com a tabela `times`: um para o mandante e outro para o visitante.
+```text
+http://127.0.0.1:3210
+```
+
+## Modelo de dados
+
+Um time pode participar de vários jogos. Cada jogo possui dois relacionamentos com a tabela `times`: mandante e visitante.
 
 ```text
 times (1) ----< jogos >---- (1) times
@@ -68,10 +76,28 @@ times (1) ----< jogos >---- (1) times
               visitante
 ```
 
-## Proximas etapas sugeridas
+## Consultas praticadas
 
-1. Executar o projeto e observar os resultados.
-2. Cadastrar mais times e jogos ficticios.
-3. Entender e executar as consultas de `03_consultas.sql`.
-4. Adicionar jogadores e estadios em novas tabelas.
-5. Adicionar formularios para cadastrar novos times e jogos pelo painel.
+O projeto inclui exemplos para:
+
+- listar partidas;
+- relacionar jogos com times;
+- filtrar partidas por status;
+- calcular classificação;
+- ordenar tabela por pontos, vitórias, saldo de gols e gols pró.
+
+## Aprendizados
+
+- Criar e popular um banco SQLite.
+- Separar scripts SQL por responsabilidade.
+- Usar `JOIN` para combinar informações de tabelas relacionadas.
+- Criar consultas para gerar relatórios.
+- Conectar uma interface local a dados calculados no backend.
+
+## Próximas melhorias
+
+- Adicionar formulário para cadastrar times.
+- Adicionar formulário para cadastrar novos jogos.
+- Permitir edição de rodadas e datas.
+- Incluir mais estatísticas na classificação.
+- Criar testes automatizados para as consultas.
